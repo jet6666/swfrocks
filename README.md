@@ -1,0 +1,4 @@
+swfrocks
+========
+
+another swf obfuscator
