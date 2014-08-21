@@ -22,18 +22,6 @@ Dynamic StringTools_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
-::String StringTools_obj::replace( ::String s,::String sub,::String by){
-	HX_STACK_FRAME("StringTools","replace",0x6d651f30,"StringTools.replace","C:\\HaxeToolkit\\haxe\\std/StringTools.hx",303,0xb9dbeb2d)
-	HX_STACK_ARG(s,"s")
-	HX_STACK_ARG(sub,"sub")
-	HX_STACK_ARG(by,"by")
-	HX_STACK_LINE(303)
-	return s.split(sub)->join(by);
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC3(StringTools_obj,replace,return )
-
 ::String StringTools_obj::hex( int n,Dynamic digits){
 	HX_STACK_FRAME("StringTools","hex",0xd91debd7,"StringTools.hex","C:\\HaxeToolkit\\haxe\\std/StringTools.hx",313,0xb9dbeb2d)
 	HX_STACK_ARG(n,"n")
@@ -88,9 +76,6 @@ Dynamic StringTools_obj::__Field(const ::String &inName,bool inCallProp)
 	switch(inName.length) {
 	case 3:
 		if (HX_FIELD_EQ(inName,"hex") ) { return hex_dyn(); }
-		break;
-	case 7:
-		if (HX_FIELD_EQ(inName,"replace") ) { return replace_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -106,7 +91,6 @@ void StringTools_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
-	HX_CSTRING("replace"),
 	HX_CSTRING("hex"),
 	String(null()) };
 

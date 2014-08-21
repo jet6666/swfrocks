@@ -2,13 +2,6 @@
 <set name="HXCPP_API_LEVEL" value="311" />
 <files id="haxe">
 <compilerflag value="-Iinclude"/>
-  <file name="src/sys/io/FileOutput.cpp">
-   <depend name="include/cpp/Lib.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/haxe/io/Error.h"/>
-   <depend name="include/haxe/io/Output.h"/>
-   <depend name="include/sys/io/FileOutput.h"/>
-  </file>
   <file name="src/sys/io/FileInput.cpp">
    <depend name="include/cpp/Lib.h"/>
    <depend name="include/haxe/io/Bytes.h"/>
@@ -19,12 +12,9 @@
   </file>
   <file name="src/sys/io/File.cpp">
    <depend name="include/cpp/Lib.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/haxe/io/Input.h"/>
-   <depend name="include/haxe/io/Output.h"/>
    <depend name="include/sys/io/File.h"/>
    <depend name="include/sys/io/FileInput.h"/>
-   <depend name="include/sys/io/FileOutput.h"/>
   </file>
   <file name="src/haxe/zip/Uncompress.cpp">
    <depend name="include/cpp/Lib.h"/>
@@ -35,13 +25,6 @@
    <depend name="include/haxe/zip/Uncompress.h"/>
   </file>
   <file name="src/haxe/zip/FlushMode.cpp">
-   <depend name="include/haxe/zip/FlushMode.h"/>
-  </file>
-  <file name="src/haxe/zip/Compress.cpp">
-   <depend name="include/Std.h"/>
-   <depend name="include/cpp/Lib.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/haxe/zip/Compress.h"/>
    <depend name="include/haxe/zip/FlushMode.h"/>
   </file>
   <file name="src/haxe/io/Error.cpp">
@@ -91,6 +74,9 @@
    <depend name="include/IMap.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
   </file>
+  <file name="src/haxe/Resource.cpp">
+   <depend name="include/haxe/Resource.h"/>
+  </file>
   <file name="src/haxe/Log.cpp">
    <depend name="include/Std.h"/>
    <depend name="include/haxe/Log.h"/>
@@ -100,53 +86,9 @@
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/haxe/zip/Uncompress.h"/>
   </file>
-  <file name="src/format/tools/Deflate.cpp">
-   <depend name="include/format/tools/Deflate.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/haxe/zip/Compress.h"/>
-  </file>
-  <file name="src/format/tools/BitsOutput.cpp">
-   <depend name="include/format/tools/BitsOutput.h"/>
-   <depend name="include/haxe/io/Output.h"/>
-  </file>
   <file name="src/format/tools/BitsInput.cpp">
    <depend name="include/format/tools/BitsInput.h"/>
    <depend name="include/haxe/io/Input.h"/>
-  </file>
-  <file name="src/format/swf/Writer.cpp">
-   <depend name="include/Std.h"/>
-   <depend name="include/format/swf/BlendMode.h"/>
-   <depend name="include/format/swf/ColorModel.h"/>
-   <depend name="include/format/swf/FillStyle.h"/>
-   <depend name="include/format/swf/Filter.h"/>
-   <depend name="include/format/swf/FontData.h"/>
-   <depend name="include/format/swf/FontInfoData.h"/>
-   <depend name="include/format/swf/GradRecord.h"/>
-   <depend name="include/format/swf/InterpolationMode.h"/>
-   <depend name="include/format/swf/JPEGData.h"/>
-   <depend name="include/format/swf/LS2Fill.h"/>
-   <depend name="include/format/swf/LangCode.h"/>
-   <depend name="include/format/swf/LineCapStyle.h"/>
-   <depend name="include/format/swf/LineJoinStyle.h"/>
-   <depend name="include/format/swf/LineStyleData.h"/>
-   <depend name="include/format/swf/Morph2LineStyle.h"/>
-   <depend name="include/format/swf/MorphFillStyle.h"/>
-   <depend name="include/format/swf/MorphShapeData.h"/>
-   <depend name="include/format/swf/PlaceObject.h"/>
-   <depend name="include/format/swf/SWFTag.h"/>
-   <depend name="include/format/swf/ShapeData.h"/>
-   <depend name="include/format/swf/ShapeRecord.h"/>
-   <depend name="include/format/swf/SoundData.h"/>
-   <depend name="include/format/swf/SoundFormat.h"/>
-   <depend name="include/format/swf/SoundRate.h"/>
-   <depend name="include/format/swf/SpreadMode.h"/>
-   <depend name="include/format/swf/Writer.h"/>
-   <depend name="include/format/tools/BitsOutput.h"/>
-   <depend name="include/format/tools/Deflate.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/haxe/io/BytesOutput.h"/>
-   <depend name="include/haxe/io/Error.h"/>
-   <depend name="include/haxe/io/Output.h"/>
   </file>
   <file name="src/format/swf/Tools.cpp">
    <depend name="include/Std.h"/>
@@ -401,16 +343,18 @@
    <depend name="include/EReg.h"/>
    <depend name="include/IMap.h"/>
    <depend name="include/Main.h"/>
-   <depend name="include/StringTools.h"/>
    <depend name="include/format/abc/ABCData.h"/>
    <depend name="include/format/abc/Index.h"/>
    <depend name="include/format/abc/Name.h"/>
+   <depend name="include/format/abc/Namespace.h"/>
    <depend name="include/format/abc/Reader.h"/>
    <depend name="include/format/abc/Writer.h"/>
+   <depend name="include/format/swf/FontData.h"/>
+   <depend name="include/format/swf/FontInfoData.h"/>
    <depend name="include/format/swf/Reader.h"/>
    <depend name="include/format/swf/SWFTag.h"/>
-   <depend name="include/format/swf/Writer.h"/>
    <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/Resource.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/haxe/io/BytesInput.h"/>

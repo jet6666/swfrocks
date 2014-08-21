@@ -38,29 +38,17 @@ class HXCPP_CLASS_ATTRIBUTES  Output_obj : public hx::Object{
 		virtual int writeBytes( ::haxe::io::Bytes s,int pos,int len);
 		Dynamic writeBytes_dyn();
 
-		virtual Void close( );
-		Dynamic close_dyn();
-
-		virtual bool set_bigEndian( bool b);
-		Dynamic set_bigEndian_dyn();
-
 		virtual Void write( ::haxe::io::Bytes s);
 		Dynamic write_dyn();
 
 		virtual Void writeFullBytes( ::haxe::io::Bytes s,int pos,int len);
 		Dynamic writeFullBytes_dyn();
 
-		virtual Void writeFloat( Float x);
-		Dynamic writeFloat_dyn();
-
 		virtual Void writeDouble( Float x);
 		Dynamic writeDouble_dyn();
 
 		virtual Void writeInt8( int x);
 		Dynamic writeInt8_dyn();
-
-		virtual Void writeInt16( int x);
-		Dynamic writeInt16_dyn();
 
 		virtual Void writeUInt16( int x);
 		Dynamic writeUInt16_dyn();
@@ -77,8 +65,6 @@ class HXCPP_CLASS_ATTRIBUTES  Output_obj : public hx::Object{
 		virtual Void writeString( ::String s);
 		Dynamic writeString_dyn();
 
-		static Dynamic _float_bytes;
-		static Dynamic &_float_bytes_dyn() { return _float_bytes;}
 		static Dynamic _double_bytes;
 		static Dynamic &_double_bytes_dyn() { return _double_bytes;}
 };

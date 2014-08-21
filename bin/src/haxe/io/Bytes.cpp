@@ -38,25 +38,6 @@ Dynamic Bytes_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1]);
 	return result;}
 
-::haxe::io::Bytes Bytes_obj::sub( int pos,int len){
-	HX_STACK_FRAME("haxe.io.Bytes","sub",0x393cae9d,"haxe.io.Bytes.sub","C:\\HaxeToolkit\\haxe\\std/haxe/io/Bytes.hx",127,0x20b05d0c)
-	HX_STACK_THIS(this)
-	HX_STACK_ARG(pos,"pos")
-	HX_STACK_ARG(len,"len")
-	HX_STACK_LINE(129)
-	if (((bool((bool((pos < (int)0)) || bool((len < (int)0)))) || bool(((pos + len) > this->length))))){
-		HX_STACK_LINE(129)
-		HX_STACK_DO_THROW(::haxe::io::Error_obj::OutsideBounds);
-	}
-	HX_STACK_LINE(149)
-	Array< unsigned char > _g = this->b->slice(pos,(pos + len));		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(149)
-	return ::haxe::io::Bytes_obj::__new(len,_g);
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC2(Bytes_obj,sub,return )
-
 ::String Bytes_obj::getString( int pos,int len){
 	HX_STACK_FRAME("haxe.io.Bytes","getString",0xa16beae4,"haxe.io.Bytes.getString","C:\\HaxeToolkit\\haxe\\std/haxe/io/Bytes.hx",261,0x20b05d0c)
 	HX_STACK_THIS(this)
@@ -154,9 +135,6 @@ Dynamic Bytes_obj::__Field(const ::String &inName,bool inCallProp)
 	case 1:
 		if (HX_FIELD_EQ(inName,"b") ) { return b; }
 		break;
-	case 3:
-		if (HX_FIELD_EQ(inName,"sub") ) { return sub_dyn(); }
-		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"alloc") ) { return alloc_dyn(); }
 		break;
@@ -210,7 +188,6 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 static ::String sMemberFields[] = {
 	HX_CSTRING("length"),
 	HX_CSTRING("b"),
-	HX_CSTRING("sub"),
 	HX_CSTRING("getString"),
 	HX_CSTRING("toString"),
 	String(null()) };

@@ -3,23 +3,14 @@
 #ifndef INCLUDED_cpp_Lib
 #include <cpp/Lib.h>
 #endif
-#ifndef INCLUDED_haxe_io_Bytes
-#include <haxe/io/Bytes.h>
-#endif
 #ifndef INCLUDED_haxe_io_Input
 #include <haxe/io/Input.h>
-#endif
-#ifndef INCLUDED_haxe_io_Output
-#include <haxe/io/Output.h>
 #endif
 #ifndef INCLUDED_sys_io_File
 #include <sys/io/File.h>
 #endif
 #ifndef INCLUDED_sys_io_FileInput
 #include <sys/io/FileInput.h>
-#endif
-#ifndef INCLUDED_sys_io_FileOutput
-#include <sys/io/FileOutput.h>
 #endif
 namespace sys{
 namespace io{
@@ -42,24 +33,6 @@ Dynamic File_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
-Void File_obj::saveBytes( ::String path,::haxe::io::Bytes bytes){
-{
-		HX_STACK_FRAME("sys.io.File","saveBytes",0x6700fb83,"sys.io.File.saveBytes","C:\\HaxeToolkit\\haxe\\std/cpp/_std/sys/io/File.hx",43,0xd489c8a1)
-		HX_STACK_ARG(path,"path")
-		HX_STACK_ARG(bytes,"bytes")
-		HX_STACK_LINE(44)
-		::sys::io::FileOutput f = ::sys::io::File_obj::write(path,null());		HX_STACK_VAR(f,"f");
-		HX_STACK_LINE(45)
-		f->write(bytes);
-		HX_STACK_LINE(46)
-		f->close();
-	}
-return null();
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC2(File_obj,saveBytes,(void))
-
 ::sys::io::FileInput File_obj::read( ::String path,hx::Null< bool >  __o_binary){
 bool binary = __o_binary.Default(true);
 	HX_STACK_FRAME("sys.io.File","read",0x203d07e1,"sys.io.File.read","C:\\HaxeToolkit\\haxe\\std/cpp/_std/sys/io/File.hx",49,0xd489c8a1)
@@ -76,22 +49,6 @@ bool binary = __o_binary.Default(true);
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(File_obj,read,return )
 
-::sys::io::FileOutput File_obj::write( ::String path,hx::Null< bool >  __o_binary){
-bool binary = __o_binary.Default(true);
-	HX_STACK_FRAME("sys.io.File","write",0xfec8a9f4,"sys.io.File.write","C:\\HaxeToolkit\\haxe\\std/cpp/_std/sys/io/File.hx",53,0xd489c8a1)
-	HX_STACK_ARG(path,"path")
-	HX_STACK_ARG(binary,"binary")
-{
-		HX_STACK_LINE(54)
-		Dynamic _g = ::sys::io::File_obj::file_open(path,(  ((binary)) ? ::String(HX_CSTRING("wb")) : ::String(HX_CSTRING("w")) ));		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(54)
-		return ::sys::io::FileOutput_obj::__new(_g);
-	}
-}
-
-
-STATIC_HX_DEFINE_DYNAMIC_FUNC2(File_obj,write,return )
-
 Dynamic File_obj::file_open;
 
 
@@ -105,11 +62,7 @@ Dynamic File_obj::__Field(const ::String &inName,bool inCallProp)
 	case 4:
 		if (HX_FIELD_EQ(inName,"read") ) { return read_dyn(); }
 		break;
-	case 5:
-		if (HX_FIELD_EQ(inName,"write") ) { return write_dyn(); }
-		break;
 	case 9:
-		if (HX_FIELD_EQ(inName,"saveBytes") ) { return saveBytes_dyn(); }
 		if (HX_FIELD_EQ(inName,"file_open") ) { return file_open; }
 	}
 	return super::__Field(inName,inCallProp);
@@ -130,9 +83,7 @@ void File_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
-	HX_CSTRING("saveBytes"),
 	HX_CSTRING("read"),
-	HX_CSTRING("write"),
 	HX_CSTRING("file_open"),
 	String(null()) };
 

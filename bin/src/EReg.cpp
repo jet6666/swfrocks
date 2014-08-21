@@ -47,7 +47,31 @@ Dynamic EReg_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1]);
 	return result;}
 
+bool EReg_obj::match( ::String s){
+	HX_STACK_FRAME("EReg","match",0x18fda1a6,"EReg.match","C:\\HaxeToolkit\\haxe\\std/cpp/_std/EReg.hx",36,0xa4513ee9)
+	HX_STACK_THIS(this)
+	HX_STACK_ARG(s,"s")
+	HX_STACK_LINE(37)
+	bool p = ::EReg_obj::regexp_match(this->r,s,(int)0,s.length);		HX_STACK_VAR(p,"p");
+	HX_STACK_LINE(38)
+	if ((p)){
+		HX_STACK_LINE(39)
+		this->last = s;
+	}
+	else{
+		HX_STACK_LINE(41)
+		this->last = null();
+	}
+	HX_STACK_LINE(42)
+	return p;
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(EReg_obj,match,return )
+
 Dynamic EReg_obj::regexp_new_options;
+
+Dynamic EReg_obj::regexp_match;
 
 
 EReg_obj::EReg_obj()
@@ -58,6 +82,7 @@ void EReg_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(EReg);
 	HX_MARK_MEMBER_NAME(r,"r");
+	HX_MARK_MEMBER_NAME(last,"last");
 	HX_MARK_MEMBER_NAME(global,"global");
 	HX_MARK_END_CLASS();
 }
@@ -65,6 +90,7 @@ void EReg_obj::__Mark(HX_MARK_PARAMS)
 void EReg_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(r,"r");
+	HX_VISIT_MEMBER_NAME(last,"last");
 	HX_VISIT_MEMBER_NAME(global,"global");
 }
 
@@ -74,8 +100,17 @@ Dynamic EReg_obj::__Field(const ::String &inName,bool inCallProp)
 	case 1:
 		if (HX_FIELD_EQ(inName,"r") ) { return r; }
 		break;
+	case 4:
+		if (HX_FIELD_EQ(inName,"last") ) { return last; }
+		break;
+	case 5:
+		if (HX_FIELD_EQ(inName,"match") ) { return match_dyn(); }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"global") ) { return global; }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"regexp_match") ) { return regexp_match; }
 		break;
 	case 18:
 		if (HX_FIELD_EQ(inName,"regexp_new_options") ) { return regexp_new_options; }
@@ -89,8 +124,14 @@ Dynamic EReg_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool 
 	case 1:
 		if (HX_FIELD_EQ(inName,"r") ) { r=inValue.Cast< Dynamic >(); return inValue; }
 		break;
+	case 4:
+		if (HX_FIELD_EQ(inName,"last") ) { last=inValue.Cast< ::String >(); return inValue; }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"global") ) { global=inValue.Cast< bool >(); return inValue; }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"regexp_match") ) { regexp_match=inValue.Cast< Dynamic >(); return inValue; }
 		break;
 	case 18:
 		if (HX_FIELD_EQ(inName,"regexp_new_options") ) { regexp_new_options=inValue.Cast< Dynamic >(); return inValue; }
@@ -101,17 +142,20 @@ Dynamic EReg_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool 
 void EReg_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_CSTRING("r"));
+	outFields->push(HX_CSTRING("last"));
 	outFields->push(HX_CSTRING("global"));
 	super::__GetFields(outFields);
 };
 
 static ::String sStaticFields[] = {
 	HX_CSTRING("regexp_new_options"),
+	HX_CSTRING("regexp_match"),
 	String(null()) };
 
 #if HXCPP_SCRIPTABLE
 static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*Dynamic*/ ,(int)offsetof(EReg_obj,r),HX_CSTRING("r")},
+	{hx::fsString,(int)offsetof(EReg_obj,last),HX_CSTRING("last")},
 	{hx::fsBool,(int)offsetof(EReg_obj,global),HX_CSTRING("global")},
 	{ hx::fsUnknown, 0, null()}
 };
@@ -119,18 +163,22 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 
 static ::String sMemberFields[] = {
 	HX_CSTRING("r"),
+	HX_CSTRING("last"),
 	HX_CSTRING("global"),
+	HX_CSTRING("match"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(EReg_obj::__mClass,"__mClass");
 	HX_MARK_MEMBER_NAME(EReg_obj::regexp_new_options,"regexp_new_options");
+	HX_MARK_MEMBER_NAME(EReg_obj::regexp_match,"regexp_match");
 };
 
 #ifdef HXCPP_VISIT_ALLOCS
 static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(EReg_obj::__mClass,"__mClass");
 	HX_VISIT_MEMBER_NAME(EReg_obj::regexp_new_options,"regexp_new_options");
+	HX_VISIT_MEMBER_NAME(EReg_obj::regexp_match,"regexp_match");
 };
 
 #endif
@@ -154,5 +202,6 @@ void EReg_obj::__register()
 void EReg_obj::__boot()
 {
 	regexp_new_options= ::cpp::Lib_obj::load(HX_CSTRING("regexp"),HX_CSTRING("regexp_new_options"),(int)2);
+	regexp_match= ::cpp::Lib_obj::load(HX_CSTRING("regexp"),HX_CSTRING("regexp_match"),(int)4);
 }
 

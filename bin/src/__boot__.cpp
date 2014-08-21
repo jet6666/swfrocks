@@ -1,11 +1,9 @@
 #include <hxcpp.h>
 
-#include <sys/io/FileOutput.h>
 #include <sys/io/FileInput.h>
 #include <sys/io/File.h>
 #include <haxe/zip/Uncompress.h>
 #include <haxe/zip/FlushMode.h>
-#include <haxe/zip/Compress.h>
 #include <haxe/io/Error.h>
 #include <haxe/io/Eof.h>
 #include <haxe/io/BytesOutput.h>
@@ -15,12 +13,10 @@
 #include <haxe/io/BytesBuffer.h>
 #include <haxe/io/Bytes.h>
 #include <haxe/ds/StringMap.h>
+#include <haxe/Resource.h>
 #include <haxe/Log.h>
 #include <format/tools/Inflate.h>
-#include <format/tools/Deflate.h>
-#include <format/tools/BitsOutput.h>
 #include <format/tools/BitsInput.h>
-#include <format/swf/Writer.h>
 #include <format/swf/Tools.h>
 #include <format/swf/Reader.h>
 #include <format/swf/LangCode.h>
@@ -79,12 +75,10 @@ void __boot_all()
 {
 __files__boot();
 hx::RegisterResources( hx::GetResources() );
-::sys::io::FileOutput_obj::__register();
 ::sys::io::FileInput_obj::__register();
 ::sys::io::File_obj::__register();
 ::haxe::zip::Uncompress_obj::__register();
 ::haxe::zip::FlushMode_obj::__register();
-::haxe::zip::Compress_obj::__register();
 ::haxe::io::Error_obj::__register();
 ::haxe::io::Eof_obj::__register();
 ::haxe::io::BytesOutput_obj::__register();
@@ -94,12 +88,10 @@ hx::RegisterResources( hx::GetResources() );
 ::haxe::io::BytesBuffer_obj::__register();
 ::haxe::io::Bytes_obj::__register();
 ::haxe::ds::StringMap_obj::__register();
+::haxe::Resource_obj::__register();
 ::haxe::Log_obj::__register();
 ::format::tools::Inflate_obj::__register();
-::format::tools::Deflate_obj::__register();
-::format::tools::BitsOutput_obj::__register();
 ::format::tools::BitsInput_obj::__register();
-::format::swf::Writer_obj::__register();
 ::format::swf::Tools_obj::__register();
 ::format::swf::Reader_obj::__register();
 ::format::swf::LangCode_obj::__register();
@@ -203,11 +195,9 @@ hx::RegisterResources( hx::GetResources() );
 ::format::swf::LangCode_obj::__boot();
 ::format::swf::Reader_obj::__boot();
 ::format::swf::Tools_obj::__boot();
-::format::swf::Writer_obj::__boot();
 ::format::tools::BitsInput_obj::__boot();
-::format::tools::BitsOutput_obj::__boot();
-::format::tools::Deflate_obj::__boot();
 ::format::tools::Inflate_obj::__boot();
+::haxe::Resource_obj::__boot();
 ::haxe::ds::StringMap_obj::__boot();
 ::haxe::io::Bytes_obj::__boot();
 ::haxe::io::BytesBuffer_obj::__boot();
@@ -217,11 +207,9 @@ hx::RegisterResources( hx::GetResources() );
 ::haxe::io::BytesOutput_obj::__boot();
 ::haxe::io::Eof_obj::__boot();
 ::haxe::io::Error_obj::__boot();
-::haxe::zip::Compress_obj::__boot();
 ::haxe::zip::FlushMode_obj::__boot();
 ::haxe::zip::Uncompress_obj::__boot();
 ::sys::io::File_obj::__boot();
 ::sys::io::FileInput_obj::__boot();
-::sys::io::FileOutput_obj::__boot();
 }
 

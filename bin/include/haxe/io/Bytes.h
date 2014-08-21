@@ -34,9 +34,6 @@ class HXCPP_CLASS_ATTRIBUTES  Bytes_obj : public hx::Object{
 
 		int length;
 		Array< unsigned char > b;
-		virtual ::haxe::io::Bytes sub( int pos,int len);
-		Dynamic sub_dyn();
-
 		virtual ::String getString( int pos,int len);
 		Dynamic getString_dyn();
 

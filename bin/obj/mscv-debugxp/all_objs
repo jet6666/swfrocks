@@ -1,9 +1,7 @@
-obj/mscv-debugxp/2dc3350f_FileOutput.obj
 obj/mscv-debugxp/2dc3350f_FileInput.obj
 obj/mscv-debugxp/2dc3350f_File.obj
 obj/mscv-debugxp/b8d1dc95_Uncompress.obj
 obj/mscv-debugxp/b8d1dc95_FlushMode.obj
-obj/mscv-debugxp/b8d1dc95_Compress.obj
 obj/mscv-debugxp/7086ce2f_Error.obj
 obj/mscv-debugxp/7086ce2f_Eof.obj
 obj/mscv-debugxp/7086ce2f_BytesOutput.obj
@@ -13,12 +11,10 @@ obj/mscv-debugxp/7086ce2f_Input.obj
 obj/mscv-debugxp/7086ce2f_BytesBuffer.obj
 obj/mscv-debugxp/7086ce2f_Bytes.obj
 obj/mscv-debugxp/67a102d5_StringMap.obj
+obj/mscv-debugxp/a09e5109_Resource.obj
 obj/mscv-debugxp/a09e5109_Log.obj
 obj/mscv-debugxp/491e0057_Inflate.obj
-obj/mscv-debugxp/491e0057_Deflate.obj
-obj/mscv-debugxp/491e0057_BitsOutput.obj
 obj/mscv-debugxp/491e0057_BitsInput.obj
-obj/mscv-debugxp/61da31d8_Writer.obj
 obj/mscv-debugxp/61da31d8_Tools.obj
 obj/mscv-debugxp/61da31d8_Reader.obj
 obj/mscv-debugxp/61da31d8_LangCode.obj

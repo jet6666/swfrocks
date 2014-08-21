@@ -83,30 +83,6 @@ int Output_obj::writeBytes( ::haxe::io::Bytes s,int pos,int len){
 
 HX_DEFINE_DYNAMIC_FUNC3(Output_obj,writeBytes,return )
 
-Void Output_obj::close( ){
-{
-		HX_STACK_FRAME("haxe.io.Output","close",0xe726bfeb,"haxe.io.Output.close","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",68,0x05ec9a64)
-		HX_STACK_THIS(this)
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC0(Output_obj,close,(void))
-
-bool Output_obj::set_bigEndian( bool b){
-	HX_STACK_FRAME("haxe.io.Output","set_bigEndian",0x33881e91,"haxe.io.Output.set_bigEndian","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",71,0x05ec9a64)
-	HX_STACK_THIS(this)
-	HX_STACK_ARG(b,"b")
-	HX_STACK_LINE(72)
-	this->bigEndian = b;
-	HX_STACK_LINE(73)
-	return b;
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Output_obj,set_bigEndian,return )
-
 Void Output_obj::write( ::haxe::io::Bytes s){
 {
 		HX_STACK_FRAME("haxe.io.Output","write",0x6f1d1512,"haxe.io.Output.write","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",78,0x05ec9a64)
@@ -170,24 +146,6 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC3(Output_obj,writeFullBytes,(void))
 
-Void Output_obj::writeFloat( Float x){
-{
-		HX_STACK_FRAME("haxe.io.Output","writeFloat",0xee877f2a,"haxe.io.Output.writeFloat","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",97,0x05ec9a64)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(x,"x")
-		HX_STACK_LINE(101)
-		Array< unsigned char > _g = ::haxe::io::Output_obj::_float_bytes(x,this->bigEndian);		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(101)
-		::haxe::io::Bytes _g1 = ::haxe::io::Bytes_obj::ofData(_g);		HX_STACK_VAR(_g1,"_g1");
-		HX_STACK_LINE(101)
-		this->write(_g1);
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Output_obj,writeFloat,(void))
-
 Void Output_obj::writeDouble( Float x){
 {
 		HX_STACK_FRAME("haxe.io.Output","writeDouble",0xb97ccdc3,"haxe.io.Output.writeDouble","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",151,0x05ec9a64)
@@ -224,25 +182,6 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC1(Output_obj,writeInt8,(void))
-
-Void Output_obj::writeInt16( int x){
-{
-		HX_STACK_FRAME("haxe.io.Output","writeInt16",0xaa114b22,"haxe.io.Output.writeInt16","C:\\HaxeToolkit\\haxe\\std/haxe/io/Output.hx",234,0x05ec9a64)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(x,"x")
-		HX_STACK_LINE(235)
-		if (((bool((x < (int)-32768)) || bool((x >= (int)32768))))){
-			HX_STACK_LINE(235)
-			HX_STACK_DO_THROW(::haxe::io::Error_obj::Overflow);
-		}
-		HX_STACK_LINE(236)
-		this->writeUInt16((int(x) & int((int)65535)));
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Output_obj,writeInt16,(void))
 
 Void Output_obj::writeUInt16( int x){
 {
@@ -376,8 +315,6 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC1(Output_obj,writeString,(void))
 
-Dynamic Output_obj::_float_bytes;
-
 Dynamic Output_obj::_double_bytes;
 
 
@@ -389,7 +326,6 @@ Dynamic Output_obj::__Field(const ::String &inName,bool inCallProp)
 {
 	switch(inName.length) {
 	case 5:
-		if (HX_FIELD_EQ(inName,"close") ) { return close_dyn(); }
 		if (HX_FIELD_EQ(inName,"write") ) { return write_dyn(); }
 		break;
 	case 9:
@@ -399,8 +335,6 @@ Dynamic Output_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"writeBytes") ) { return writeBytes_dyn(); }
-		if (HX_FIELD_EQ(inName,"writeFloat") ) { return writeFloat_dyn(); }
-		if (HX_FIELD_EQ(inName,"writeInt16") ) { return writeInt16_dyn(); }
 		if (HX_FIELD_EQ(inName,"writeInt24") ) { return writeInt24_dyn(); }
 		if (HX_FIELD_EQ(inName,"writeInt32") ) { return writeInt32_dyn(); }
 		break;
@@ -410,12 +344,8 @@ Dynamic Output_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"writeUInt24") ) { return writeUInt24_dyn(); }
 		if (HX_FIELD_EQ(inName,"writeString") ) { return writeString_dyn(); }
 		break;
-	case 12:
-		if (HX_FIELD_EQ(inName,"_float_bytes") ) { return _float_bytes; }
-		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"_double_bytes") ) { return _double_bytes; }
-		if (HX_FIELD_EQ(inName,"set_bigEndian") ) { return set_bigEndian_dyn(); }
 		break;
 	case 14:
 		if (HX_FIELD_EQ(inName,"writeFullBytes") ) { return writeFullBytes_dyn(); }
@@ -427,10 +357,7 @@ Dynamic Output_obj::__SetField(const ::String &inName,const Dynamic &inValue,boo
 {
 	switch(inName.length) {
 	case 9:
-		if (HX_FIELD_EQ(inName,"bigEndian") ) { if (inCallProp) return set_bigEndian(inValue);bigEndian=inValue.Cast< bool >(); return inValue; }
-		break;
-	case 12:
-		if (HX_FIELD_EQ(inName,"_float_bytes") ) { _float_bytes=inValue.Cast< Dynamic >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"bigEndian") ) { bigEndian=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"_double_bytes") ) { _double_bytes=inValue.Cast< Dynamic >(); return inValue; }
@@ -445,7 +372,6 @@ void Output_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
-	HX_CSTRING("_float_bytes"),
 	HX_CSTRING("_double_bytes"),
 	String(null()) };
 
@@ -460,14 +386,10 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("bigEndian"),
 	HX_CSTRING("writeByte"),
 	HX_CSTRING("writeBytes"),
-	HX_CSTRING("close"),
-	HX_CSTRING("set_bigEndian"),
 	HX_CSTRING("write"),
 	HX_CSTRING("writeFullBytes"),
-	HX_CSTRING("writeFloat"),
 	HX_CSTRING("writeDouble"),
 	HX_CSTRING("writeInt8"),
-	HX_CSTRING("writeInt16"),
 	HX_CSTRING("writeUInt16"),
 	HX_CSTRING("writeInt24"),
 	HX_CSTRING("writeUInt24"),
@@ -477,14 +399,12 @@ static ::String sMemberFields[] = {
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(Output_obj::__mClass,"__mClass");
-	HX_MARK_MEMBER_NAME(Output_obj::_float_bytes,"_float_bytes");
 	HX_MARK_MEMBER_NAME(Output_obj::_double_bytes,"_double_bytes");
 };
 
 #ifdef HXCPP_VISIT_ALLOCS
 static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(Output_obj::__mClass,"__mClass");
-	HX_VISIT_MEMBER_NAME(Output_obj::_float_bytes,"_float_bytes");
 	HX_VISIT_MEMBER_NAME(Output_obj::_double_bytes,"_double_bytes");
 };
 
@@ -508,7 +428,6 @@ void Output_obj::__register()
 
 void Output_obj::__boot()
 {
-	_float_bytes= ::cpp::Lib_obj::load(HX_CSTRING("std"),HX_CSTRING("float_bytes"),(int)2);
 	_double_bytes= ::cpp::Lib_obj::load(HX_CSTRING("std"),HX_CSTRING("double_bytes"),(int)2);
 }
 

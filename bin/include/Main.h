@@ -10,6 +10,9 @@ HX_DECLARE_CLASS0(Main)
 HX_DECLARE_CLASS2(format,abc,ABCData)
 HX_DECLARE_CLASS2(format,abc,Index)
 HX_DECLARE_CLASS2(format,abc,Name)
+HX_DECLARE_CLASS2(format,abc,Namespace)
+HX_DECLARE_CLASS2(format,swf,FontData)
+HX_DECLARE_CLASS2(format,swf,FontInfoData)
 HX_DECLARE_CLASS2(haxe,ds,StringMap)
 HX_DECLARE_CLASS2(haxe,io,Bytes)
 
@@ -34,6 +37,12 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public hx::Object{
 		static void __register();
 		::String __ToString() const { return HX_CSTRING("Main"); }
 
+		virtual Void fontTest( int id,::format::swf::FontData data);
+		Dynamic fontTest_dyn();
+
+		virtual Void fontTest2( int id,::format::swf::FontInfoData data);
+		Dynamic fontTest2_dyn();
+
 		virtual Void replectSymbolClass( Dynamic classList);
 		Dynamic replectSymbolClass_dyn();
 
@@ -44,8 +53,12 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public hx::Object{
 		Dynamic transformAbc_dyn();
 
 		static ::haxe::ds::StringMap map;
+		static Array< ::String > symbolList;
 		static Void main( );
 		static Dynamic main_dyn();
+
+		static ::format::abc::Namespace getNameSpace( ::format::abc::ABCData abcData,::format::abc::Index idx);
+		static Dynamic getNameSpace_dyn();
 
 		static ::format::abc::Name getName( ::format::abc::ABCData abcData,::format::abc::Index idx);
 		static Dynamic getName_dyn();
